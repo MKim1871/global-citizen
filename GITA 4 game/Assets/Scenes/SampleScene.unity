@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648186ae9672dcc4ea4dd315397b0f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &208917375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +152,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a29a10f026fe9c45a9e12dd81d3e98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &208917380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208917373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d628140689de14ca876d037a54ffc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  xSensitivity: 30
+  ySensitivity: 30
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +412,18 @@ PrefabInstance:
     - target: {fileID: 228569219193919743, guid: ffb7e41787c481347a7de1c7c4fba240, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 228569219349250336, guid: ffb7e41787c481347a7de1c7c4fba240, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.46169454
+      objectReference: {fileID: 0}
+    - target: {fileID: 228569219349250336, guid: ffb7e41787c481347a7de1c7c4fba240, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.5157692
+      objectReference: {fileID: 0}
+    - target: {fileID: 228569219349250336, guid: ffb7e41787c481347a7de1c7c4fba240, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.9339623
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb7e41787c481347a7de1c7c4fba240, type: 3}
