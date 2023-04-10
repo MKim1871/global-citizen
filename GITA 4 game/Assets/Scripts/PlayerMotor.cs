@@ -7,6 +7,7 @@ public class PlayerMotor : MonoBehaviour
 	private CharacterController controller;
 	private Vector3 playerVelocity;
 	private bool isGrounded;
+	private bool isSprinting;
 	private float speed = 5f;
 	private float gravity = -9.8f;
 	private float jumpHeight = 3f;
@@ -29,6 +30,12 @@ public class PlayerMotor : MonoBehaviour
 		//allows left or right movement, is z and not y because y is up
 		moveDirection.x = input.x;
 		moveDirection.z = input.y;
+
+		if (Input.GetKey(KeyCode.LeftShift))
+    	{
+        	moveDirection *= 2f; // Double the movement speed when sprinting
+    	}
+
 		controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
 		playerVelocity.y += gravity * Time.deltaTime;
 		
@@ -38,7 +45,6 @@ public class PlayerMotor : MonoBehaviour
 		}
 		
 		controller.Move(playerVelocity * Time.deltaTime);
-		Debug.Log(playerVelocity.y);
 	}
 	
 	public void Jump()
@@ -48,4 +54,10 @@ public class PlayerMotor : MonoBehaviour
 			playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
 		}
 	}
+
+	public void Sprint()
+	{
+
+	}
+
 }
