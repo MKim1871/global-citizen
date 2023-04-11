@@ -8,6 +8,7 @@ public class PlayerMotor : MonoBehaviour
 	private Vector3 playerVelocity;
 	private bool isGrounded;
 	private bool isSprinting;
+	private bool firedTrigger;
 	private float speed = 5f;
 	private float gravity = -9.8f;
 	private float jumpHeight = 3f;
@@ -55,9 +56,9 @@ public class PlayerMotor : MonoBehaviour
 		}
 	}
 
-	public void Sprint()
+	public void Shoot()
 	{
-
+		firedTrigger = true;
 	}
 
 }
