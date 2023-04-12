@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
+	public GameObject bulletPrefab;
+	public float bulletSpeed = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,11 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1")) {
+			// Code to shoot the gun goes here
+			GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+			bullet.GetComponent<Rigidbody>().velocity = transform.right * bulletSpeed;
+		}
+
     }
 }
