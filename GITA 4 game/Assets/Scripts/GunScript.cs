@@ -5,7 +5,8 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
 	public GameObject bulletPrefab;
-	public float bulletSpeed = 1.0f;
+	private float bulletSpeed = 50.0f;
+	
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,10 @@ public class GunScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) {
 			// Code to shoot the gun goes here
-			GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+			Quaternion playerRotation = transform.rotation;
+			Quaternion bulletRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, 90f);
+			
+			GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0, 0.2f, 0), bulletRotation);
 			bullet.GetComponent<Rigidbody>().velocity = transform.right * bulletSpeed;
 		}
 
