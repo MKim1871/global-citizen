@@ -351,8 +351,9 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Input/PlayerInput.cs"
-"Assets/Scripts/GunScript.cs"
+"Assets/Scripts/ARScript.cs"
 "Assets/Scripts/InputManager.cs"
+"Assets/Scripts/PistolScript.cs"
 "Assets/Scripts/PlayerLook.cs"
 "Assets/Scripts/PlayerMotor.cs"
 -langversion:9.0

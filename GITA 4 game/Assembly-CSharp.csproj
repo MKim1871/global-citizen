@@ -54,9 +54,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Input\PlayerInput.cs" />
-    <Compile Include="Assets\Scripts\GunScript.cs" />
+    <Compile Include="Assets\Scripts\PistolScript.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\ARScript.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
   </ItemGroup>
   <ItemGroup>
