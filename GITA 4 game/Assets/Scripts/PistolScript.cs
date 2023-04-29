@@ -27,7 +27,6 @@ public class PistolScript : MonoBehaviour
 		}
 		else if (Input.GetButtonDown("Fire2") && isScoped == true) {
 			//Restores to original position
-			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
 			isScoped = false;
 		}
         if (Input.GetButtonDown("Fire1")) {
@@ -45,6 +44,7 @@ public class PistolScript : MonoBehaviour
 			//Code for bullet disappearance
 		}
 		
+		transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
 		
     }
 	
