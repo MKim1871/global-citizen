@@ -9,7 +9,7 @@ public class PlayerMotor : MonoBehaviour
 	private bool isGrounded;
 	private bool isSprinting;
 	private float speed = 5f;
-	private float gravity = -9.8f;
+	private float gravity = -20.0f;
 	private float jumpHeight = 3f;
     // Start is called before the first frame update
     void Start()

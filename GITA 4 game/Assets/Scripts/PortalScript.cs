@@ -15,15 +15,22 @@ public class PortalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.T))
-		{
-			
-		}
+    
     }
 	
 	private void OnCollisionEnter(Collision collision)
 	{
-		SceneManager.LoadScene("Training Level");
-		 Debug.Log("Hi");
+		if (collision.gameObject == playerPrefab)
+        {
+			Scene currentScene = SceneManager.GetActiveScene();
+			if(currentScene.name == "SampleScene")
+			{
+				SceneManager.LoadScene("Training Level");
+			}
+			else if(currentScene.name == "Training Scene")
+			{
+				SceneManager.LoadScene("SampleScene");
+			}
+        }
 	}
 }
