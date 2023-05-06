@@ -9,6 +9,7 @@ public class ARScript : MonoBehaviour
 	private float bulletSpeed = 30.0f;
 	private float recoilSpeed = 0.1f;
 	private float fireTime = 0.0f;
+	private bool isScoped;
 	private Vector3 startingPosition;
 	
 
@@ -23,8 +24,13 @@ public class ARScript : MonoBehaviour
     {
 		fireTime += Time.deltaTime;
 		
-		if (Input.GetButton("Fire2")) {
-			transform.localPosition += new Vector3(-0.02f, 0f, -0.01f);
+		if (Input.GetButton("Fire2") && !isScoped) {
+			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-0.3f, -0f, -0.3f), Time.deltaTime * 10f);
+
+			if (transform.localPosition == startingPosition + new Vector3(-0.6f, -0f, -0.6f))
+			{
+				isScoped = true;
+			}
 		}
 		
         if (Input.GetButton("Fire1") && fireTime >= 0.1f) {
@@ -42,7 +48,13 @@ public class ARScript : MonoBehaviour
 			fireTime = 0.0f;
 		}
 		
-		//Restores to original position
-		transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
+		if (!isScoped)
+		{
+			//Restores to original position
+			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
+
+			isScoped = false;
+		}
+		
     }
 }
