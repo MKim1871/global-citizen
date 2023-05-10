@@ -25,7 +25,7 @@ public class ARScript : MonoBehaviour
 		fireTime += Time.deltaTime;
 		
 		if (Input.GetButton("Fire2") && !isScoped) {
-			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-0.3f, -0f, -0.3f), Time.deltaTime * 10f);
+			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-0.8f, 0f, -0.4f), Time.deltaTime * 10f);
 
 			if (transform.localPosition == startingPosition + new Vector3(-0.6f, -0f, -0.6f))
 			{

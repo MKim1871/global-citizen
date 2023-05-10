@@ -21,14 +21,15 @@ public class PistolScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetButtonDown("Fire2") && isScoped == false) {
-			transform.localPosition += new Vector3(-0.03f, 0.01f, -0.01f);
-			isScoped = true;
+		if (Input.GetButton("Fire2") && !isScoped) {
+			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-1f, 0.2f, -0.2f), Time.deltaTime * 10f);
+
+			if (transform.localPosition == startingPosition + new Vector3(-0.6f, -0f, -0.6f))
+			{
+				isScoped = true;
+			}
 		}
-		else if (Input.GetButtonDown("Fire2") && isScoped == true) {
-			//Restores to original position
-			isScoped = false;
-		}
+		
         if (Input.GetButtonDown("Fire1")) {
 			// Code to shoot
 			Quaternion playerRotation = transform.rotation;
@@ -44,7 +45,13 @@ public class PistolScript : MonoBehaviour
 			//Code for bullet disappearance
 		}
 		
-		transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
+		if (!isScoped)
+		{
+			//Restores to original position
+			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
+
+			isScoped = false;
+		}
 		
     }
 	
