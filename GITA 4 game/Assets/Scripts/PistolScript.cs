@@ -8,6 +8,7 @@ public class PistolScript : MonoBehaviour
 {
 	public GameObject bulletPrefab;
 	public GameObject textMeshObject;
+	public Camera camera;
 	
 	private float bulletSpeed = 30.0f;
 	private float recoilAmount = 0.1f;
@@ -26,6 +27,8 @@ public class PistolScript : MonoBehaviour
 		
 		textMeshObject = GameObject.Find("Player/Main Camera/Canvas/Bullet Amount");
 		bulletAmountTM = textMeshObject.GetComponent<TextMeshProUGUI>();
+		
+		bulletAmountTM.text = bulletAmount.ToString();
     }
 
     // Update is called once per frame
@@ -36,7 +39,10 @@ public class PistolScript : MonoBehaviour
 		if (Input.GetButton("Fire2") && !isScoped) 
 		{
 			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-1f, 0.2f, -0.2f), Time.deltaTime * 10f);
-
+			
+			//actually zooms in
+			camera.fieldOfView = 30f;
+			
 			if (transform.localPosition == startingPosition + new Vector3(-0.6f, -0f, -0.6f))
 			{
 				isScoped = true;
@@ -47,7 +53,7 @@ public class PistolScript : MonoBehaviour
 		{
 			//Restores to original position
 			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
-
+			
 			isScoped = false;
 		}
 		
@@ -71,7 +77,8 @@ public class PistolScript : MonoBehaviour
 			}	
 		}
 		
-		if (Input.GetKey("R") && !isReloading) 
+		//Reload code
+		if (Input.GetKeyDown(KeyCode.R) && !isReloading) 
 		{			
 			isReloading = true;
 		}
@@ -79,10 +86,12 @@ public class PistolScript : MonoBehaviour
 		if (isReloading)
 		{
 			reloadTime += Time.deltaTime;
-			bulletAmountTM.text = bulletAmount.ToString();
+			bulletAmountTM.text = "Reloading...";
 			
-			if (reloadTime == 3.0f)
+			if (reloadTime > 12.0f)
 			{
+				bulletAmount = 12;
+				bulletAmountTM.text = bulletAmount.ToString();
 				reloadTime = 0;
 				isReloading = false;
 			}
