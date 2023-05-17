@@ -34,28 +34,13 @@ public class PistolScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		reloadTime += Time.deltaTime;
-		
-		if (Input.GetButton("Fire2") && !isScoped) 
+		if (Input.GetButton("Fire2")) 
 		{
 			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-1f, 0.2f, -0.2f), Time.deltaTime * 10f);
-			
-			//actually zooms in
-			camera.fieldOfView = 30f;
-			
-			if (transform.localPosition == startingPosition + new Vector3(-0.6f, -0f, -0.6f))
-			{
-				isScoped = true;
-			}
 		}
-		
-		if (!isScoped)
-		{
-			//Restores to original position
-			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
-			
-			isScoped = false;
-		}
+	
+		//Restores to original position
+		transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);	
 		
 		if (bulletAmount > 0 && !isReloading)
 		{
@@ -88,11 +73,11 @@ public class PistolScript : MonoBehaviour
 			reloadTime += Time.deltaTime;
 			bulletAmountTM.text = "Reloading...";
 			
-			if (reloadTime > 12.0f)
+			if (reloadTime > 4.0f)
 			{
 				bulletAmount = 12;
 				bulletAmountTM.text = bulletAmount.ToString();
-				reloadTime = 0;
+				reloadTime = 0f;
 				isReloading = false;
 			}
 		}
