@@ -353,6 +353,7 @@
 "Assets/Input/PlayerInput.cs"
 "Assets/IslandGenerator/IslandGenerator.cs"
 "Assets/Scripts/ARScript.cs"
+"Assets/Scripts/BulletScript.cs"
 "Assets/Scripts/InputManager.cs"
 "Assets/Scripts/PistolScript.cs"
 "Assets/Scripts/PlayerLook.cs"

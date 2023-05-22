@@ -33,14 +33,24 @@ public class PistolScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-		if (Input.GetButton("Fire2")) 
+    {		
+		if (Input.GetButton("Fire2") && !isScoped) 
 		{
 			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-1f, 0.2f, -0.2f), Time.deltaTime * 10f);
+			
+			if (transform.localPosition == startingPosition + new Vector3(-0.6f, -0f, -0.6f))
+			{
+				isScoped = true;
+			}
 		}
-	
-		//Restores to original position
-		transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);	
+		
+		if (!isScoped)
+		{
+			//Restores to original position
+			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition, Time.deltaTime * 10f);
+			
+			isScoped = false;
+		}
 		
 		if (bulletAmount > 0 && !isReloading)
 		{
@@ -77,16 +87,11 @@ public class PistolScript : MonoBehaviour
 			{
 				bulletAmount = 12;
 				bulletAmountTM.text = bulletAmount.ToString();
-				reloadTime = 0f;
+				reloadTime = 0;
 				isReloading = false;
 			}
 		}
         
 		
     }
-	
-	void OnCollisionEnter()
-	{
-		Destroy(bulletPrefab);
-	}
 }
