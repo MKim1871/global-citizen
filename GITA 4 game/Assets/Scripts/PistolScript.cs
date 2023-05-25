@@ -10,7 +10,7 @@ public class PistolScript : MonoBehaviour
 	public GameObject textMeshObject;
 	public Camera camera;
 	
-	private float bulletSpeed = 30.0f;
+	private float bulletSpeed = 50.0f;
 	private float recoilAmount = 0.1f;
 	private float reloadTime = 0.0f;
 	private int bulletAmount = 12;
@@ -83,7 +83,7 @@ public class PistolScript : MonoBehaviour
 			reloadTime += Time.deltaTime;
 			bulletAmountTM.text = "Reloading...";
 			
-			if (reloadTime > 4.0f)
+			if (reloadTime > 2.0f)
 			{
 				bulletAmount = 12;
 				bulletAmountTM.text = bulletAmount.ToString();
