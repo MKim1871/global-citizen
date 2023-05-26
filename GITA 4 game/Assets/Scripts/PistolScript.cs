@@ -58,7 +58,7 @@ public class PistolScript : MonoBehaviour
 			if (Input.GetButtonDown("Fire1")) {
 				// Code to shoot
 				Quaternion playerRotation = transform.rotation;
-				Quaternion bulletRotation = Quaternion.Euler(playerRotation.eulerAngles.x, playerRotation.eulerAngles.y, playerRotation.eulerAngles.z + 90f);
+				Quaternion bulletRotation = Quaternion.Euler(playerRotation.eulerAngles.x, playerRotation.eulerAngles.y, playerRotation.eulerAngles.z);
 				
 				//Generates and shoots bullet
 				GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0, 0.2f, 0), bulletRotation);

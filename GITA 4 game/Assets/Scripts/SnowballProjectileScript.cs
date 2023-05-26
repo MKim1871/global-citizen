@@ -25,7 +25,7 @@ public class SnowballProjectileScript : MonoBehaviour
 		if (collision.gameObject.name == "Floor")
         {
 			Quaternion puddleRotation = Quaternion.Euler(0f, 0f, 0f);
-			GameObject puddle = Instantiate(puddlePrefab, transform.position + new Vector3(0, -0.5f, 0), puddleRotation);
+			GameObject puddle = Instantiate(puddlePrefab, transform.position + new Vector3(0, -0.23f, 0), puddleRotation);
 			Destroy(snowball);
         }
 	}

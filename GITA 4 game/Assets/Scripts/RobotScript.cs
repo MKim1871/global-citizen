@@ -8,6 +8,7 @@ public class RobotScript : MonoBehaviour
 	public GameObject robotPrefab;
 	
 	private int health = 100;
+	private float robotSpeed = 5f;
 	
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class RobotScript : MonoBehaviour
 		{
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(distanceFromPlayer), 10f * Time.deltaTime);
 			
-	        transform.Translate(Vector3.forward * 5f * Time.deltaTime);
+	        transform.Translate(Vector3.forward * robotSpeed * Time.deltaTime);
 		}	
 
     }
@@ -35,18 +36,22 @@ public class RobotScript : MonoBehaviour
 	{
 		if (collision.gameObject.name == "Pistol Bullet(Clone)")
         {
-			Debug.Log("5");
-			health -= 10;
+			health -= 100;
         }
 		if (collision.gameObject.name == "Assault Bullet(Clone)")
         {
-			Debug.Log("4");
-			health -= 5;
+			health -= 500;
         }
+		if (collision.gameObject.name == "Snow Puddle(Clone)")
+		{
+			robotSpeed = 1f;
+		}
 		
 		if (health < 1)
 		{
 			Destroy(robotPrefab);
 		}
+		
+	
 	}
 }

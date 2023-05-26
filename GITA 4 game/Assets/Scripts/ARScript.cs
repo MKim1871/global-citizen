@@ -64,7 +64,7 @@ public class ARScript : MonoBehaviour
 				
 				//Generates and shoots bullet
 				GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0.3f, -0f, 0), bulletRotation);
-				bullet.GetComponent<Rigidbody>().velocity = transform.up * -1 * bulletSpeed;
+				bullet.GetComponent<Rigidbody>().velocity = transform.right * bulletSpeed;
 				
 				//Code for recoil
 				transform.localPosition += new Vector3(0, 0, -recoilSpeed);
