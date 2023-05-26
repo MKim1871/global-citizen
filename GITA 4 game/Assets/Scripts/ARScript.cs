@@ -34,6 +34,7 @@ public class ARScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		bulletAmountTM.text = bulletAmount.ToString();
 		fireTime += Time.deltaTime;
 		
 		if (Input.GetButton("Fire2") && !isScoped) {

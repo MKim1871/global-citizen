@@ -6,6 +6,9 @@ public class RobotScript : MonoBehaviour
 {
 	public GameObject playerPrefab;
 	public GameObject robotPrefab;
+	public GameObject pistolBulletPrefab;
+	
+	private int health = 100;
 	
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,20 @@ public class RobotScript : MonoBehaviour
 			
 	        transform.Translate(Vector3.forward * 5f * Time.deltaTime);
 		}	
-		
+
     }
+	
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject == pistolBulletPrefab)
+        {
+			Debug.Log("hit");
+			health -= 10;
+			
+			if (health < 1)
+			{
+				Destroy(robotPrefab);
+			}
+        }
+	}
 }

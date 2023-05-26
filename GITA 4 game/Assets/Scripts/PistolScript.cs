@@ -34,6 +34,7 @@ public class PistolScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {		
+		bulletAmountTM.text = bulletAmount.ToString();
 		if (Input.GetButton("Fire2") && !isScoped) 
 		{
 			transform.localPosition = Vector3.Lerp(transform.localPosition, startingPosition + new Vector3(-1f, 0.2f, -0.2f), Time.deltaTime * 10f);
