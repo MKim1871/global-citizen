@@ -20,17 +20,6 @@ public class PortalScript : MonoBehaviour
 	
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject == playerPrefab)
-        {
-			Scene currentScene = SceneManager.GetActiveScene();
-			if(currentScene.name == "SampleScene")
-			{
-				SceneManager.LoadScene("Training Level");
-			}
-			else if(currentScene.name == "Training Scene")
-			{
-				SceneManager.LoadScene("SampleScene");
-			}
-        }
+		
 	}
 }

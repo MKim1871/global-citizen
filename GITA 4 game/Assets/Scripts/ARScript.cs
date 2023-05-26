@@ -25,6 +25,7 @@ public class ARScript : MonoBehaviour
     {
         startingPosition = transform.localPosition;
 		
+		//Set-up text values
 		textMeshObject = GameObject.Find("Player/Main Camera/Canvas/Bullet Amount");
 		bulletAmountTM = textMeshObject.GetComponent<TextMeshProUGUI>();
 		
@@ -56,7 +57,7 @@ public class ARScript : MonoBehaviour
 		
 		if (bulletAmount > 0 && !isReloading)
 		{
-			if (Input.GetButton("Fire1") && fireTime >= 0.1f) {
+			if (Input.GetButton("Fire1") && fireTime >= 0.15f) {
 				// Code to shoot
 				Quaternion playerRotation = transform.rotation;
 				Quaternion bulletRotation = Quaternion.Euler(playerRotation.eulerAngles.x, playerRotation.eulerAngles.y, playerRotation.eulerAngles.z);

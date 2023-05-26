@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Training Level.unity
     guid: b028a81e5f1f9b1458f975fbd23f62b1
+  - enabled: 1
+    path: Assets/Scenes/Egypt.unity
+    guid: 4102ad2edf712e84e8b6133643424c38
   m_configObjects: {}

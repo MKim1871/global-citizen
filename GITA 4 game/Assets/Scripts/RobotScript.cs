@@ -6,7 +6,6 @@ public class RobotScript : MonoBehaviour
 {
 	public GameObject playerPrefab;
 	public GameObject robotPrefab;
-	public GameObject pistolBulletPrefab;
 	
 	private int health = 100;
 	
@@ -23,7 +22,7 @@ public class RobotScript : MonoBehaviour
 		distanceFromPlayer.y = 0f;
 		float angleComparedToPlayer = Vector3.Angle(transform.forward, distanceFromPlayer);
 
-		if (angleComparedToPlayer < 120f * 0.5f && distanceFromPlayer.magnitude > 1.3f && distanceFromPlayer.magnitude < 10f)
+		if (angleComparedToPlayer < 180f * 0.5f && distanceFromPlayer.magnitude > 1.15f && distanceFromPlayer.magnitude < 10f)
 		{
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(distanceFromPlayer), 10f * Time.deltaTime);
 			
@@ -32,17 +31,22 @@ public class RobotScript : MonoBehaviour
 
     }
 	
-	void OnCollisionEnter(Collision collision)
+	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject == pistolBulletPrefab)
+		if (collision.gameObject.name == "Pistol Bullet(Clone)")
         {
-			Debug.Log("hit");
+			Debug.Log("5");
 			health -= 10;
-			
-			if (health < 1)
-			{
-				Destroy(robotPrefab);
-			}
         }
+		if (collision.gameObject.name == "Assault Bullet(Clone)")
+        {
+			Debug.Log("4");
+			health -= 5;
+        }
+		
+		if (health < 1)
+		{
+			Destroy(robotPrefab);
+		}
 	}
 }
